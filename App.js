@@ -10,19 +10,21 @@ import {FocusHistory} from './src/features/FocusHistory.js'
 
 export default function App() {
   const [currentSubject, setCurrentSubject] = useState(null)
-  const [history, setHistory] = useState(['Temp focused'])
+  const [history, setHistory] = useState([])
   return (
     <SafeAreaView style={styles.container}>
       {
         !currentSubject ? ( 
           <>
           <Focus addSubject={setCurrentSubject} />
-          <FocusHistory focusedHistory={history}/>
+          <FocusHistory history={history}/>
           </>        
         ):(
         <Timer
           focusSubject={currentSubject}
-          onEndTimer={() => {}}
+          onEndTimer={(subject) => {
+            setHistory([...history, subject])
+          }}
           clearSubject={() => setCurrentSubject(null)}
         />
       )}

@@ -17,7 +17,7 @@ import { useKeepAwake } from 'expo-keep-awake';
       1 * ONE_SECOND_IN_MS,
       1 * ONE_SECOND_IN_MS
     ];
-export const Timer = ({focusSubject, clearSubject}) => {
+export const Timer = ({focusSubject, clearSubject, onEndTimer}) => {
     useKeepAwake();
     const [isStarted, setIsStarted] = useState(false)
     const [progress, setProgress] = useState(1)
@@ -28,6 +28,7 @@ export const Timer = ({focusSubject, clearSubject}) => {
         setProgress(1)
         setIsStarted(false)
         reset()
+        onEndTimer(focusSubject)
     }
     return(
         <View style={styles.container}>
