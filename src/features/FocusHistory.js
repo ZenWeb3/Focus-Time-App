@@ -4,7 +4,9 @@ import { colors } from "../utils/colors";
 import { fontSizes, spacing } from "../utils/sizes";
 
 export const FocusHistory = ({history}) => {
-    if(!history || !history.length) return null;
+    if(!history || !history.length) return <View style={{padding: spacing.md}}>
+                                             <Text style={styles.title}>We havent focused on anything yet.</Text>;
+                                            </View>
     const renderItem = ({item}) => <Text style={styles.focusedItem}>- {item}</Text>
     return (
         <View style={styles.container}>
