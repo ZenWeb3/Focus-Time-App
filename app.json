@@ -3,6 +3,9 @@
     "name": "Focus-App",
     "slug": "Focus-App",
     "version": "1.0.0",
-    "orientation": "portrait" 
+    "orientation": "portrait",
+    "notification": {
+    "icon": "./images/newAppLogo.png"
+    }
   }
 }
